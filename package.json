@@ -1,22 +1,22 @@
 {
-  "name": "publish-react-component-boilerplate",
-  "version": "1.0.0",
-  "description": "Boilerplate for publishing react component to npm",
+  "name": "react-acrylic",
+  "version": "0.0.1",
+  "description": "Frost glass acrylic background react component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/damaera/publish-react-component-boilerplate.git"
+    "url": "https://github.com/damaera/react-acrylic.git"
   },
   "author": "Lutfi Mukti Damaera",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/damaera/publish-react-component-boilerplate/issues"
+    "url": "https://github.com/damaera/react-acrylic/issues"
   },
-  "homepage": "https://github.com/damaera/publish-react-component-boilerplate",
+  "homepage": "https://github.com/damaera/react-acrylic",
   "keywords": [
     "react-component",
-    "npm",
-    "publish",
-    "boilerplate",
+    "fluent design",
+    "acrylic",
+    "frost glass",
     "react"
   ],
   "options": {
@@ -33,6 +33,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.10",
     "babel-cli": "^6.6.4",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.2",
@@ -52,8 +53,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
-    "sinon": "^1.17.3",
-    "@storybook/react": "^3.2.10"
+    "sinon": "^1.17.3"
   },
   "peerDependencies": {
     "react": "~0.14.8 || ^15.0.0",
@@ -61,6 +61,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.6.1",
-    "prop-types": "^15.5.8"
+    "html2canvas": "^0.5.0-beta4",
+    "prop-types": "^15.5.8",
+    "stackblur-canvas": "^1.4.0"
   }
 }

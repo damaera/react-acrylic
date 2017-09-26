@@ -1,3 +1,3 @@
-var Test = require('./dist/Test')
+var Acrylic = require('./dist/Acrylic')
 
-exports.Test = Test.default
+exports.default = Acrylic.default
