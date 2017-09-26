@@ -159,10 +159,10 @@ Acrylic.defaultProps = {
   opacity: 0.5,
 
   position: 'fixed',
-  left: '100px',
-  top: 100,
-  width: '300px',
-  height: 'calc(100vh - 200px)',
+  left: 0,
+  top: 0,
+  width: 0,
+  height: 0,
 
   blur: 30,
   borderRadius: 0,
