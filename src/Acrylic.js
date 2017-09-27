@@ -98,7 +98,8 @@ class Acrylic extends Component {
             height: this.props.height,
             width: this.props.width,
 
-            borderRadius: 0,
+            borderRadius: this.props.borderRadius,
+            boxShadow: this.props.boxShadow,
 
             zIndex: 2
           }}
@@ -110,7 +111,7 @@ class Acrylic extends Component {
               left: 0,
               bottom: 0,
               right: 0,
-              background: this.props.background,
+              background: this.props.colorOverlay,
               opacity: this.props.opacity,
               content: '',
               zIndex: -1,
@@ -140,7 +141,8 @@ class Acrylic extends Component {
             height: this.props.height,
             width: this.props.width,
 
-            borderRadius: 0,
+            borderRadius: this.props.borderRadius,
+            boxShadow: this.props.boxShadow,
 
             zIndex: 1,
 
@@ -154,7 +156,7 @@ class Acrylic extends Component {
 }
 
 Acrylic.defaultProps = {
-  background: '#fff',
+  colorOverlay: '#fff',
   opacity: 0.5,
 
   position: 'fixed',

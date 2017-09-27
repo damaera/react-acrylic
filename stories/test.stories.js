@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Acrylic from '../index';
+import Acrylic from '../src/Acrylic';
 
 import imgSrc from './img.jpg'
 
@@ -8,9 +8,9 @@ storiesOf('Acrylic', module)
   .add('Acrylic', () => {
     return <div>
       <Acrylic
-        background='#eee'
+        colorOverlay='#ff00ee'
         position='fixed'
-        opacity='0.2'
+        opacity='0.5'
         top='100px'
         left='100px'
         width='300px'

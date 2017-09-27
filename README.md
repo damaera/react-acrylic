@@ -1,11 +1,55 @@
-# Publish React Component
+[![npm version](https://img.shields.io/npm/v/react-acrylic.svg?style=flat-square)](https://www.npmjs.com/package/react-acrylic)
 
-Boilerplate for publishing react component to npm
+# React Acrylic
 
-Just clone this repo and start developing your custom, testable react component
+Frost glass effect, Acrylic react component
 
+Inspired by [Fluent Design's Acrylic Material](https://docs.microsoft.com/en-us/windows/uwp/style/acrylic)
+
+This one uses `html2canvas`, which takes dynamic ‘screenshots’ of the content to blur.
+
+![Layer](/static/layer.jpg "Layer")
+
+## Usage
+```jsx
+
+import React, { Component } from 'react'
+Import Acrylic from 'react-acrylic'
+
+class YourComponent extends Component {
+  render() {
+    <Acrylic
+      colorOverlay='#eee'
+      opacity='0.4'
+
+      position='fixed'
+      top='100px'
+      left='100px'
+      width='300px'
+      height='200px'
+
+      blur={40}
+      borderRadius='2px'
+      borderRadius='2px'
+    >
+      <span>Hello Acrylic</span>
+    </Acrylic>
+  }
+}
 ```
-git clone https://github.com/damaera/publish-react-component
-cd publish-react-component
-```
 
+## Props
+
+
+| Props | Default value |
+| --------------|---------------|
+| `position` | `'fixed'`,
+| `left` | `0`,
+| `top` | `0`,
+| `width` | `0`,
+| `height` | `0`,
+| `colorOverlay` | `'#fff'` |
+| `opacity` | `0.5` |
+| `borderRadius` | `0` |
+| `boxShadow` | `null` |
+| `blur` | `30` |
