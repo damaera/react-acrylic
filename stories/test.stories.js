@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Acrylic from '../src/Acrylic';
+import Acrylic from '../index';
 
 import imgSrc from './img.jpg'
 
@@ -8,7 +8,13 @@ storiesOf('Acrylic', module)
   .add('Acrylic', () => {
     return <div>
       <Acrylic
+        background='#eee'
+        position='fixed'
         opacity='0.2'
+        top='100px'
+        left='100px'
+        width='300px'
+        height='500px'
       />
       <Acrylic
         position='fixed'
@@ -16,8 +22,12 @@ storiesOf('Acrylic', module)
         top='100px'
         left='400px'
         width='calc(100% - 500px)'
-        height='calc(100vh - 200px)'
-      />
+        height='500px'
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda laboriosam est, ex. Natus, provident adipisci voluptatem pariatur saepe, magnam doloremque assumenda quaerat atque ipsam dolores reiciendis laudantium aut quasi impedit!
+        </p>
+      </Acrylic>
       <div >
         <img
           src={imgSrc}

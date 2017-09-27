@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'react', 'prop-types', 'html2canvas', 'stackblur-canvas', './imgNoise'], factory);
+    define(['exports', 'react', 'prop-types', 'html2canvas', 'stackblur-canvas', './debounce', './imgNoise'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('react'), require('prop-types'), require('html2canvas'), require('stackblur-canvas'), require('./imgNoise'));
+    factory(exports, require('react'), require('prop-types'), require('html2canvas'), require('stackblur-canvas'), require('./debounce'), require('./imgNoise'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes, global.html2canvas, global.stackblurCanvas, global.imgNoise);
+    factory(mod.exports, global.react, global.propTypes, global.html2canvas, global.stackblurCanvas, global.debounce, global.imgNoise);
     global.Acrylic = mod.exports;
   }
-})(this, function (exports, _react, _propTypes, _html2canvas, _stackblurCanvas, _imgNoise) {
+})(this, function (exports, _react, _propTypes, _html2canvas, _stackblurCanvas, _debounce, _imgNoise) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -24,6 +24,8 @@
   var _html2canvas2 = _interopRequireDefault(_html2canvas);
 
   var _stackblurCanvas2 = _interopRequireDefault(_stackblurCanvas);
+
+  var _debounce2 = _interopRequireDefault(_debounce);
 
   var _imgNoise2 = _interopRequireDefault(_imgNoise);
 
@@ -81,23 +83,6 @@
     if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
   }
 
-  function debounce(callback, wait) {
-    var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this;
-
-    var timeout = null;
-    var callbackArgs = null;
-
-    var later = function later() {
-      return callback.apply(context, callbackArgs);
-    };
-
-    return function () {
-      callbackArgs = arguments;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
   var Acrylic = function (_Component) {
     _inherits(Acrylic, _Component);
 
@@ -114,14 +99,16 @@
 
       return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Acrylic.__proto__ || Object.getPrototypeOf(Acrylic)).call.apply(_ref, [this].concat(args))), _this), _this.showHideElement = function () {
         var $$acrylics = document.querySelectorAll('.js-acrylic');
-        console.log($$acrylics);
-        // $$acrylics.map(($acrylic) => {
-        //   $acrylic.style.display = 'none'
-        //   const vv = setTimeout(() => {
-        //     $acrylic.display = 'block'
-        //     clearTimeout(vv)
-        //   }, 20)
-        // })
+        if ($$acrylics) {
+          $$acrylics.forEach(function ($acrylic) {
+            $acrylic.style.display = 'none';
+            // $acrylic.style.transition = 'opacity 1s'
+            var vv = setTimeout(function () {
+              $acrylic.style.display = 'block';
+              clearTimeout(vv);
+            }, 20);
+          });
+        }
       }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -138,9 +125,7 @@
         // capturing body
         var init = function init(firstTime) {
           (0, _html2canvas2.default)(document.body, {
-            logging: true,
             onrendered: function onrendered(canvas) {
-              console.log(document.body);
               self.canvas = canvas;
 
               self.blurEl.appendChild(self.canvas);
@@ -148,7 +133,6 @@
               canvas.style.position = 'absolute';
               var clientRect = canvas.getBoundingClientRect();
 
-              console.log(clientRect.top, window.scrollY);
               canvas.style.top = -clientRect.top + window.scrollY + 'px';
               canvas.style.left = -clientRect.left + window.scrollX + 'px';
               self.canvas.style.transform = 'translate(-' + window.scrollX + 'px, -' + window.scrollY + 'px)';
@@ -169,14 +153,14 @@
           }
         });
 
-        window.addEventListener('resize', debounce(function () {
+        window.addEventListener('resize', (0, _debounce2.default)(function () {
           // console.log(self.canvas.width) 
-          self.blurEl.innerHTML = '';
+          _this2.blurEl.innerHTML = '';
           setTimeout(function () {
+            _this2.showHideElement();
             init();
-            self.showHideElement();
           }, 10);
-          self.canvas.width = window.innerWidth;
+          _this2.canvas.width = window.innerWidth;
           // self.canvas.height = window.innerHeight
         }, 100));
       }
@@ -187,7 +171,9 @@
 
         return _react2.default.createElement(
           'span',
-          { className: 'js-acrylic' },
+          {
+            className: 'js-acrylic'
+          },
           _react2.default.createElement(
             'span',
             {
@@ -266,12 +252,12 @@
     opacity: 0.5,
 
     position: 'fixed',
-    left: '100px',
-    top: 100,
-    width: '300px',
-    height: 'calc(100vh - 200px)',
+    left: 0,
+    top: 0,
+    width: 0,
+    height: 0,
 
-    blur: 40,
+    blur: 30,
     borderRadius: 0,
     boxShadow: null
   };

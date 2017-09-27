@@ -1,3 +1,3 @@
 var Acrylic = require('./dist/Acrylic')
 
-exports.default = Acrylic.default
+module.exports = Acrylic.default

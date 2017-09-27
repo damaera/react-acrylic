@@ -52,7 +52,6 @@ class Acrylic extends Component {
 
     window.addEventListener('scroll', () => {
       if (this.props.position === 'fixed') {
-        console.log(self.canvas.getBoundingClientRect())
         self.canvas.style.transform = `translate(-${window.scrollX}px, -${window.scrollY}px)`
       }
     })
