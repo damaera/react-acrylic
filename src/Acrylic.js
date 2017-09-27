@@ -156,8 +156,7 @@ class Acrylic extends Component {
 }
 
 Acrylic.defaultProps = {
-  colorOverlay: '#fff',
-  opacity: 0.5,
+  blur: 30,
 
   position: 'fixed',
   left: 0,
@@ -165,7 +164,9 @@ Acrylic.defaultProps = {
   width: 0,
   height: 0,
 
-  blur: 30,
+  colorOverlay: '#fff',
+  opacity: 0.5,
+
   borderRadius: 0,
   boxShadow: null,
 }

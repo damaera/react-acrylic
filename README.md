@@ -2,7 +2,7 @@
 
 # React Acrylic
 
-Frost glass effect, Acrylic react component
+Frost glass effect, Acrylic Material react component
 
 Inspired by [Fluent Design's Acrylic Material](https://docs.microsoft.com/en-us/windows/uwp/style/acrylic)
 
