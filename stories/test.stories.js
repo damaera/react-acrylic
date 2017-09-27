@@ -21,7 +21,7 @@ storiesOf('Acrylic', module)
         opacity='0.5'
         top='100px'
         left='400px'
-        width='calc(100% - 500px)'
+        width='700px'
         height='500px'
       >
         <p>

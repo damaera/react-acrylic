@@ -148,7 +148,6 @@
 
         window.addEventListener('scroll', function () {
           if (_this2.props.position === 'fixed') {
-            console.log(self.canvas.getBoundingClientRect());
             self.canvas.style.transform = 'translate(-' + window.scrollX + 'px, -' + window.scrollY + 'px)';
           }
         });
@@ -188,7 +187,8 @@
                 height: this.props.height,
                 width: this.props.width,
 
-                borderRadius: 0,
+                borderRadius: this.props.borderRadius,
+                boxShadow: this.props.boxShadow,
 
                 zIndex: 2
               }
@@ -200,7 +200,7 @@
                 left: 0,
                 bottom: 0,
                 right: 0,
-                background: this.props.background,
+                background: this.props.colorOverlay,
                 opacity: this.props.opacity,
                 content: '',
                 zIndex: -1
@@ -230,7 +230,8 @@
               height: this.props.height,
               width: this.props.width,
 
-              borderRadius: 0,
+              borderRadius: this.props.borderRadius,
+              boxShadow: this.props.boxShadow,
 
               zIndex: 1,
 
@@ -248,8 +249,7 @@
   }(_react.Component);
 
   Acrylic.defaultProps = {
-    background: '#fff',
-    opacity: 0.5,
+    blur: 30,
 
     position: 'fixed',
     left: 0,
@@ -257,7 +257,9 @@
     width: 0,
     height: 0,
 
-    blur: 30,
+    colorOverlay: '#fff',
+    opacity: 0.5,
+
     borderRadius: 0,
     boxShadow: null
   };

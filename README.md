@@ -10,6 +10,12 @@ This one uses `html2canvas`, which takes dynamic ‘screenshots’ of the conten
 
 ![Layer](/static/layer.jpg "Layer")
 
+## Live Demo
+
+[![Edit 6xp9vyjj23](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/6xp9vyjj23)
+
+https://6xp9vyjj23.codesandbox.io/
+
 ## Usage
 ```jsx
 
