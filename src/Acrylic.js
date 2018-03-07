@@ -156,7 +156,7 @@ class Acrylic extends Component {
 }
 
 Acrylic.defaultProps = {
-  blur: 30,
+  blur: 20,
 
   position: 'fixed',
   left: 0,
@@ -168,12 +168,23 @@ Acrylic.defaultProps = {
   opacity: 0.5,
 
   borderRadius: 0,
-  boxShadow: null,
+  boxShadow: '',
 }
 
 Acrylic.propTypes = {
   theme: PropTypes.string,
   blur: PropTypes.number,
+  position: PropTypes.string,
+  left: PropTypes.number,
+  top: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
+
+  colorOverlay: PropTypes.string,
+  opacity: PropTypes.number,
+
+  borderRadius: PropTypes.number,
+  boxShadow: PropTypes.string,
 }
 
 export default Acrylic;
